@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hélène L. Rey — Archaeologist & cultural studies scholar</title>
+<meta name="description" content="Hélène L. Rey — archaeologist working on how communities in medieval Central Eurasia materialised overlapping identities, and on the digital and spatial methods that make fragmentary evidence analysable.">
+<meta property="og:title" content="Hélène L. Rey — Archaeologist & cultural studies scholar">
+<meta property="og:description" content="Archaeologist working on how communities in medieval Central Eurasia materialised overlapping identities, and on the digital and spatial methods that make fragmentary evidence analysable.">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='%235C7A8A' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 4 L23 16 L16 22 L9 16 Z'/%3E%3Cpath d='M16 22 L16 27'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #F6F4F0;
+    --surface:  #EFECE5;
+    --border:   #DBD6CC;
+    --border-2: #C8C2B6;
+    --text:     #1E1D1B;
+    --muted:    #6B6961;
+    --accent:   #234A63;
+    --grid:     rgba(30, 29, 27, 0.05);
+
+    --t-xs:   12px;
+    --t-sm:   14px;
+    --t-base: 15.5px;
+    --t-md:   19px;
+    --t-lg:   23px;
+  }
+
+  html[data-theme="dark"] {
+    --bg:       #16181A;
+    --surface:  #1D2023;
+    --border:   #2F3438;
+    --border-2: #414750;
+    --text:     #EAE8E3;
+    --muted:    #94928A;
+    --accent:   #9BBFD8;
+    --grid:     rgba(234, 232, 227, 0.045);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html[data-theme="auto"] {
+      --bg:       #16181A;
+      --surface:  #1D2023;
+      --border:   #2F3438;
+      --border-2: #414750;
+      --text:     #EAE8E3;
+      --muted:    #94928A;
+      --accent:   #9BBFD8;
+      --grid:     rgba(234, 232, 227, 0.045);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Literata', Georgia, serif;
+    font-optical-sizing: auto;
+    font-size: var(--t-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background .3s ease, color .3s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+
+  a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: var(--text); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .shell {
+    display: grid;
+    grid-template-columns: 316px minmax(0, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  /* ---------------- Sidebar ---------------- */
+  aside {
+    background-color: var(--surface);
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0 27px, var(--grid) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, var(--grid) 27px 28px);
+    border-right: 1px solid var(--border);
+    padding: 58px 42px 48px 40px;
+    position: sticky;
+    top: 0;
+    align-self: start;
+  }
+
+  .avatar {
+    width: 190px; height: 190px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: var(--t-md); font-weight: 500;
+    color: var(--muted); letter-spacing: .06em;
+    margin-bottom: 26px;
+    overflow: hidden;
+  }
+  .avatar img { 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.2) translateY(8%);
+    filter: saturate(0.7) hue-rotate(-8deg);
+  }
+
+  .who {
+    font-size: 23px; font-weight: 600;
+    line-height: 1.2; letter-spacing: -0.018em;
+    margin: 0 0 8px;
+  }
+
+  .what-i-am {
+    font-size: var(--t-sm); font-style: italic;
+    color: var(--muted); line-height: 1.5;
+    margin: 0 0 24px;
+  }
+
+  .side-block {
+    padding-top: 22px;
+    margin-bottom: 22px;
+    border-top: 1px solid var(--border);
+  }
+
+  .affil { font-size: var(--t-sm); line-height: 1.6; margin: 0; }
+  .affil .primary { display: block; }
+  .affil .secondary { display: block; color: var(--muted); }
+  .location { font-size: var(--t-sm); color: var(--muted); margin: 10px 0 0; }
+
+  nav.jump a {
+    display: block;
+    font-size: var(--t-sm);
+    text-decoration: none;
+    color: var(--text);
+    padding: 5px 0;
+    transition: color .15s ease, padding-left .15s ease;
+  }
+  nav.jump a:hover { color: var(--accent); padding-left: 5px; }
+
+  .side-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 5px;}
+  .side-links a { font-size: var(--t-sm); text-decoration: none; }
+  .side-links a:hover { text-decoration: underline; }
+
+  .side-social { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; }
+  .side-social a { font-size: var(--t-xs); color: var(--muted); text-decoration: none; }
+  .side-social a:hover { color: var(--accent); }
+
+  .theme-btn {
+      position: fixed;
+      right: 20px; bottom: 20px;
+      z-index: 10;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--surface);
+      border: 1px solid var(--border-2);
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      color: var(--muted);
+      cursor: pointer;
+      padding: 0;
+      transition: border-color .2s ease, color .2s ease, transform .15s ease;
+    }
+    .theme-btn:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.05); }
+    .theme-btn svg { width: 18px; height: 18px; }
+    .icon-moon { display: none; }
+    html[data-theme="dark"] .icon-sun { display: none; }
+    html[data-theme="dark"] .icon-moon { display: block; }
+      
+  /* ---------------- Main ---------------- */
+  main { padding: 58px 60px 100px; max-width: 700px; }
+
+  .opening {
+    font-size: calc(var(--t-base) * 1.35);
+    line-height: 1.52;
+    margin: 0;
+    max-width: 40ch;
+    letter-spacing: -0.008em;
+  }
+
+  section { padding-top: 46px; }
+
+  h2 {
+    font-size: var(--t-lg);
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    line-height: 1.2;
+    margin: 0 0 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-2);
+    box-shadow: 0 4px 0 -3px var(--border);
+  }
+
+  p { margin: 0 0 17px; }
+  p:last-child { margin-bottom: 0; }
+
+  .project-title {
+    font-size: var(--t-md);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.42;
+    margin: 0 0 20px;
+    letter-spacing: -0.008em;
+  }
+
+  .entries { list-style: none; margin: 0; padding: 0; }
+  .entries li {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 24px;
+    padding: 17px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .entries li:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .entries .when {
+    font-size: var(--t-xs);
+    color: var(--muted);
+    letter-spacing: .05em;
+    padding-top: 5px;
+  }
+  .entries .what { display: block; line-height: 1.48; margin-bottom: 3px; }
+  .entries .where { display: block; font-size: var(--t-sm); font-style: italic; color: var(--muted); line-height: 1.45; }
+  .entries .note { display: block; font-size: var(--t-sm); color: var(--muted); line-height: 1.45; margin-top: 5px; }
+  .entries .note em { font-style: italic; }
+
+  .lang-row {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 24px;
+    padding: 10px 0;
+  }
+  .lang-row .tier {
+    font-size: var(--t-xs);
+    color: var(--muted);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding-top: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .shell { grid-template-columns: 1fr; min-height: 0; }
+    aside {
+      position: static; max-height: none;
+      border-right: none; border-bottom: 1px solid var(--border);
+      padding: 46px 28px 34px;
+    }
+    nav.jump { display: none; }
+    main { padding: 38px 28px 84px; max-width: none; }
+    .opening { font-size: calc(var(--t-base) * 1.25); max-width: none; }
+    .entries li, .lang-row { grid-template-columns: 1fr; gap: 4px; }
+    .entries .when, .lang-row .tier { padding-top: 0; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hélène L. Rey",
+  "givenName": "Hélène",
+  "familyName": "Rey",
+  "jobTitle": "Archaeologist",
+  "description": "Archaeologist working on entangled identities in medieval Central Eurasia, using digital and spatial methods.",
+  "url": "https://helenerey.com",
+  "identifier": "https://orcid.org/0000-0001-8731-9070",
+  "knowsAbout": ["Archaeology", "Central Eurasia", "Syriac Christianity", "Digital archaeology", "Spatial analysis"],
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "University College London"},
+    {"@type": "CollegeOrUniversity", "name": "King's College London"},
+    {"@type": "CollegeOrUniversity", "name": "University of Chicago"}
+  ],
+  "sameAs": [
+    "https://orcid.org/0000-0001-8731-9070",
+    "https://bsky.app/profile/helenerey.bsky.social",
+    "https://www.linkedin.com/in/helene-rey",
+    "https://www.instagram.com/helenelrey",
+    "https://www.threads.net/@helenelrey"
+  ]
+}
+</script>
+<script data-goatcounter="https://hrey.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+</head>
+<body>
+
+<div class="shell">
+
+  <aside>
+    <div class="avatar"><img src="portrait.png" alt="Hélène L. Rey"></div>
+
+    <p class="who">Hélène L. Rey</p>
+    <p class="what-i-am">Archaeologist — Central Eurasia, entangled identities, digital methods</p>
+
+    <div class="side-block">
+      <p class="affil">
+        <span class="primary">University of the Highlands and Islands</span>
+        <span class="secondary">UCL and King's College London alumna</span>
+      </p>
+      <p class="location">Based in Zürich, Switzerland</p>
+    </div>
+
+    <nav class="jump side-block">
+      <a href="#research">Current research</a>
+      <a href="#talks">Recent talks</a>
+      <a href="#previous">Previous research</a>
+      <a href="#education">Education</a>
+      <a href="#field">Fieldwork</a>
+      <a href="#languages">Languages</a>
+    </nav>
+
+    <div class="side-block">
+      <div class="side-links">
+        <a href="mailto:helene.rey.11@alumni.ucl.ac.uk">Email</a>
+      </div>
+      <div class="side-links">
+        <a href="https://orcid.org/0000-0001-8731-9070">ORCiD</a>
+      </div>
+      <div class="side-social">
+        <a href="https://bsky.app/profile/helenerey.bsky.social">Bluesky</a>
+        <a href="https://www.linkedin.com/in/helene-rey">LinkedIn</a>
+        <a href="https://www.instagram.com/helenelrey">Instagram</a>
+        <a href="https://www.threads.net/@helenelrey">Threads</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <p class="opening">Archaeologist and cultural studies scholar working on how communities in medieval Central and Inner Asia negotiated overlapping identities. Particularly interested in how these negotiations were translated into the material record, and how digital and spatial methods can help make sense of scattered legacy evidence.</p>
+
+    <section id="research">
+      <h2>Current research</h2>
+      <p class="project-title">Materialising Entangled Identities: A Digital Archaeological Study of East Syriac Christianity in 13th–14th Century Turco-Mongol Central Eurasia</p>
+      <p>This project explores how the spatial organisation and material culture of East Syriac Christian practice among Turco-Mongol communities reflect the negotiation of overlapping identities — and how digital methods can help reconstruct these processes from fragmentary, dispersed evidence.</p>
+      <p>The case study areas are the Semirechye/Zhetisu region of southeastern Kazakhstan and northern Kyrgyzstan, and central Inner and Outer Mongolia. Methods include spatial and network analysis, supported by a CIDOC CRM-structured PostgreSQL/PostGIS database seeking to bring dispersed legacy data into a single analysable form. The analysis draws on practice-centred and entanglement approaches to material culture, alongside a critical reading of Silk Roads scholarship and its inherited categories.</p>
+    </section>
+
+    <section id="talks">
+      <h2>Recent talks</h2>
+      <ul class="entries">
+        <li>
+          <span class="when">Aug 2026</span>
+          <span>
+            <span class="what">Archaeological Evidence of Entangled Identities: Rethinking East Syriac Christianity in the Turco-Mongol World of 13th–14th Century Central Eurasia</span>
+            <span class="where">14th Symposium Syriacum, Bucharest</span>
+          </span>
+        </li>
+        <li>
+          <span class="when">Apr 2026</span>
+          <span>
+            <span class="what">View from the Edges of the Sea: Turco-Mongol Perspectives on the Medieval Mediterranean</span>
+            <span class="where">Il mare comune, Pontificia Facoltà Teologica di Sicilia, Palermo</span>
+          </span>
+        </li>
+        <li>
+          <span class="when">Feb 2024</span>
+          <span>
+            <span class="what">Cosmopolitanism and Minority Rights: Moving Beyond the Protection of Ethno-Religious Minorities in the Middle East</span>
+            <span class="where">4th International Congress of the PLURIEL Network, Abu Dhabi</span>
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="previous">
+      <h2>Previous research</h2>
+      <ul class="entries">
+        <li>
+          <span class="when">2025</span>
+          <span>
+            <span class="what">Entangled Identities: An Archaeological Exploration of Syriac Christianity in the Turco-Mongol World of 13th–14th Century Central Eurasia</span>
+            <span class="where">MA dissertation, King's College London (Distinction)</span>
+          </span>
+        </li>
+        <li>
+          <span class="when">2014</span>
+          <span>
+            <span class="what">Changes in Early Islamic Glass Assemblages from the Levant and their Socio-Political Context</span>
+            <span class="where">BSc dissertation, University College London (First)</span>
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul class="entries">
+        <li>
+          <span class="when">From 2026</span>
+          <span><span class="what">Archaeology (postgraduate)</span><span class="where">University of the Highlands and Islands</span></span>
+        </li>
+        <li>
+          <span class="when">2022–2025</span>
+          <span>
+            <span class="what">MA Global Cultures — Distinction</span>
+            <span class="where">King's College London, Department of Interdisciplinary Humanities</span>
+          </span>
+        </li>
+        <li>
+          <span class="when">2014–2016</span>
+          <span><span class="what">Graduate coursework, Middle Eastern Studies &amp; Sociology</span><span class="where">University of Chicago, Center for Middle Eastern Studies</span></span>
+        </li>
+        <li>
+          <span class="when">2011–2014</span>
+          <span>
+            <span class="what">BSc Archaeology — First Class</span>
+            <span class="where">University College London, Institute of Archaeology</span>
+            <span class="note">Seton Lloyd Memorial Prize for Western Asiatic Archaeology</span>
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="field">
+      <h2>Fieldwork</h2>
+      <ul class="entries">
+        <li>
+          <span class="when">2025</span>
+          <span><span class="what">Tsagaan Sumiĭn Balgas, Orkhon Valley — Excavation of a Uyghur urban site and cemetery</span><span class="where">Institute of Archaeology, Mongolian Academy of Sciences</span><span class="where">American Center for Mongolian Studies</span><span class="note">ACMS Fieldwork Fellowship</span></span>
+        </li>
+        <li>
+          <span class="when">2013</span>
+          <span><span class="what">Ecomuseo Cap de Cavalleria, Menorca — Late Roman necropolis, bioarchaeology, GIS database</span><span class="where">Sanisera Archaeology Institute</span></span>
+        </li>
+        <li>
+          <span class="when">2012</span>
+          <span><span class="what">Marco Gonzalez, Ambergris Caye — Ceramic, faunal, and environmental find processing at a coastal Maya site; community outreach</span><span class="where">University of North Carolina Wilmington</span><span class="where">UCL Institute of Archaeology</span></span>
+        </li>
+        <li>
+          <span class="when">2012</span>
+          <span><span class="what">West Dean, West Sussex — Excavation and find processing at an Iron Age hillfort</span><span class="where">UCL Institute of Archaeology</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="languages">
+      <h2>Languages</h2>
+      <div class="lang-row"><span class="tier">Fluent</span><span>English, French, German</span></div>
+      <div class="lang-row"><span class="tier">Proficient</span><span>Italian, Arabic</span></div>
+      <div class="lang-row"><span class="tier">Reading</span><span>Portuguese, Latin, Ancient Greek</span></div>
+      <div class="lang-row"><span class="tier">Notions</span><span>Classical Syriac, Neo-Aramaic, Persian, Armenian, Mongolian, Russian</span></div>
+    </section>
+
+  </main>
+
+</div>
+
+<button class="theme-btn" id="tbtn" aria-label="Switch colour theme">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+</button>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('tbtn');
+    function current() {
+      var t = root.getAttribute('data-theme');
+      if (t === 'auto') return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return t;
+    }
+    function sync() {  }
+    btn.addEventListener('click', function () {
+      root.setAttribute('data-theme', current() === 'dark' ? 'light' : 'dark');
+      sync();
+    });
+    sync();
+  })();
+</script>
+
+</body>
+</html>
